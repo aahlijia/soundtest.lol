@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact SOUND/TEST for booking inquiries!">
+    <title>Contact - SOUND/TEST</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/retro-theme.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav-menu" role="navigation" aria-label="Main navigation">
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-list">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">Characters</a></li>
+                <li><a href="socials.html" class="nav-link">Socials</a></li>
+                <li><a href="setlist.html" class="nav-link">Set List</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-section">
+            <h1 class="page-title">Message Board</h1>
+            <p class="section-subtitle">Send us a transmission!</p>
+
+            <div class="contact-container">
+                <form id="contact-form" class="game-form" action="https://formspree.io/f/mvzkajeq" method="POST">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Player Name</label>
+                        <input type="text" id="name" name="name" class="form-input" required placeholder="Enter your name...">
+                        <span class="form-error" aria-live="polite"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-input" required placeholder="your@email.com">
+                        <span class="form-error" aria-live="polite"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="form-label">Your Message</label>
+                        <textarea id="message" name="message" class="form-textarea" required placeholder="Type your message here..." rows="5"></textarea>
+                        <span class="form-error" aria-live="polite"></span>
+                    </div>
+
+                    <button type="submit" class="form-submit game-button">
+                        <span class="button-text">Send Message</span>
+                        <span class="button-icon">&#9654;</span>
+                    </button>
+                </form>
+
+                <div id="form-success" class="form-message success" hidden>
+                    <div class="message-icon">&#9989;</div>
+                    <h3>Message Sent!</h3>
+                    <p>Achievement Unlocked: First Contact!</p>
+                    <p>We'll get back to you soon.</p>
+                </div>
+
+                <div id="form-error" class="form-message error" hidden>
+                    <div class="message-icon">&#10060;</div>
+                    <h3>Game Over!</h3>
+                    <p>Something went wrong. Please try again.</p>
+                    <button type="button" class="game-button retry-button" onclick="location.reload()">
+                        <span class="button-text">Continue?</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2025 SOUND/TEST. All rights reserved.</p>
+        <p class="footer-tagline">Insert Coin to Continue</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/contact-form.js"></script>
+</body>
+</html>

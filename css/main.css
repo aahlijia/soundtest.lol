@@ -1,0 +1,158 @@
+/* main.css - Global styles and resets */
+
+/* CSS Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* CSS Custom Properties */
+:root {
+    /* Colors - 90s Video Game Palette */
+    --color-primary: #00FFFF;
+    --color-secondary: #FF00FF;
+    --color-accent-yellow: #FFFF00;
+    --color-accent-green: #00FF00;
+    --color-accent-orange: #FF6600;
+    --color-background: #0a0a1a;
+    --color-background-light: #1a1a2e;
+    --color-text: #FFFFFF;
+    --color-text-dim: #AAAAAA;
+    --color-success: #00FF00;
+    --color-error: #FF0000;
+
+    /* Typography */
+    --font-pixel: 'Press Start 2P', cursive;
+    --font-body: 'Press Start 2P', monospace, sans-serif;
+
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 2rem;
+    --space-xl: 4rem;
+
+    /* Borders */
+    --border-width: 4px;
+    --border-radius: 0;
+
+    /* Transitions */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.3s ease;
+
+    /* Container */
+    --container-max: 1200px;
+    --container-padding: var(--space-md);
+}
+
+/* Base Styles */
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    line-height: 1.8;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-pixel);
+    font-weight: normal;
+    line-height: 1.4;
+    margin-bottom: var(--space-md);
+}
+
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.25rem; }
+h3 { font-size: 1rem; }
+h4 { font-size: 0.875rem; }
+
+p {
+    margin-bottom: var(--space-md);
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover, a:focus {
+    color: var(--color-secondary);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+/* Focus States */
+:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+    background-color: var(--color-secondary);
+    color: var(--color-background);
+}
+
+/* Layout */
+.container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+main {
+    min-height: calc(100vh - 200px);
+    padding: var(--space-lg) 0;
+}
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Responsive Typography */
+@media (min-width: 768px) {
+    body {
+        font-size: 0.875rem;
+    }
+
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.25rem; }
+}
+
+@media (min-width: 1024px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 1.75rem; }
+}
