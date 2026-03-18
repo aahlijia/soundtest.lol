@@ -29,6 +29,34 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Spotify Embed Toggle
+    document.querySelectorAll('.play-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const trackId = this.dataset.trackId;
+            const levelItem = this.closest('.level-item');
+            const embed = levelItem.querySelector('.spotify-embed');
+            const isOpen = embed.classList.contains('open');
+
+            // Close all other open embeds
+            document.querySelectorAll('.spotify-embed.open').forEach(el => {
+                el.classList.remove('open');
+                el.innerHTML = '';
+                const otherBtn = el.closest('.level-item')?.querySelector('.play-btn');
+                if (otherBtn) {
+                    otherBtn.textContent = '\u25B6';
+                    otherBtn.classList.remove('playing');
+                }
+            });
+
+            if (!isOpen) {
+                embed.innerHTML = `<iframe src="https://open.spotify.com/embed/track/${trackId}?utm_source=generator" height="80" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
+                embed.classList.add('open');
+                this.textContent = '\u25A0';
+                this.classList.add('playing');
+            }
+        });
+    });
+
     // Character Card Selection Effect
     const characterCards = document.querySelectorAll('.character-card');
     characterCards.forEach(card => {
