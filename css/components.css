@@ -880,6 +880,53 @@
     }
 }
 
+.play-btn {
+    background: transparent;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    font-family: var(--font-pixel);
+    font-size: 0.8rem;
+    padding: 8px 14px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+}
+
+.play-btn:hover {
+    background: var(--color-primary);
+    color: var(--color-bg);
+    box-shadow: 0 0 10px var(--color-primary);
+}
+
+.play-btn.playing {
+    border-color: var(--color-accent-pink);
+    color: var(--color-accent-pink);
+}
+
+.play-btn.playing:hover {
+    background: var(--color-accent-pink);
+    color: var(--color-bg);
+    box-shadow: 0 0 10px var(--color-accent-pink);
+}
+
+.spotify-embed {
+    grid-column: 1 / -1;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease;
+}
+
+.spotify-embed.open {
+    max-height: 90px;
+}
+
+.spotify-embed iframe {
+    display: block;
+    width: 100%;
+    border-radius: 0;
+    margin-top: var(--space-sm);
+}
+
 .lock-icon {
     font-size: 1.25rem;
     color: var(--color-text-dim);
@@ -1721,4 +1768,175 @@
         opacity: 0.8;
         transform: scale(0.98);
     }
+}
+
+/* =======================================================================
+   MAXIMUM OVERDRIVE EXPANSION — component enhancements
+   ======================================================================= */
+
+/* ===== HERO AURA ===== */
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 18% 50%, rgba(255,0,255,0.14) 0%, transparent 55%),
+        radial-gradient(ellipse at 82% 50%, rgba(0,255,255,0.14) 0%, transparent 55%);
+    z-index: 2;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    animation: hero-aura-shift 5s ease-in-out infinite alternate;
+}
+
+@keyframes hero-aura-shift {
+    0%   { opacity: 0.5; filter: hue-rotate(0deg); }
+    100% { opacity: 1;   filter: hue-rotate(25deg); }
+}
+
+/* Hero subtitle ▶ prefix */
+.hero-subtitle::before {
+    content: '▶ ';
+    color: var(--color-accent-green);
+    animation: blink 0.8s steps(1) infinite;
+}
+
+/* ===== CHARACTER CARD ENHANCEMENTS ===== */
+
+/* Enable 3D perspective tilt via JS */
+.character-card {
+    transform-style: preserve-3d;
+}
+
+/* Portrait zoom on hover */
+.portrait-image {
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.character-card:hover .portrait-image {
+    transform: scale(1.08);
+    filter: brightness(1.15) saturate(1.35);
+}
+
+/* Character name glow on hover */
+.character-name {
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.character-card:hover .character-name {
+    color: var(--color-accent-yellow);
+    text-shadow:
+        0 0 10px var(--color-accent-yellow),
+        0 0 25px rgba(255,255,0,0.5);
+}
+
+/* ===== LEVEL ITEM ENHANCEMENTS ===== */
+
+/* Title glow on hover */
+.level-title {
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.level-item:hover .level-title {
+    color: var(--color-accent-yellow);
+    text-shadow: 0 0 10px var(--color-accent-yellow);
+}
+
+/* ===== SECTION TITLE ANIMATED UNDERLINE ===== */
+.section-title {
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    height: 3px;
+    margin-top: 6px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary), var(--color-accent-yellow), var(--color-primary));
+    background-size: 200%;
+    box-shadow: 0 0 8px var(--color-primary);
+    animation: section-underline-flow 2.5s linear infinite;
+}
+
+@keyframes section-underline-flow {
+    from { background-position: 0% 0; }
+    to   { background-position: 200% 0; }
+}
+
+/* ===== FOOTER SCROLLING MARQUEE ===== */
+.site-footer::before {
+    content: '♪ SOUND/TEST ♪  VIDEO GAME COVERS ♪  INSERT COIN ♪  PRESS START ♪  PLAYER 1 ♪  HIGH SCORE ♪  1UP ♪  GAME ON ♪  SOUND/TEST ♪';
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 0.5rem;
+    color: rgba(0,255,255,0.5);
+    letter-spacing: 0.2em;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(0,255,255,0.2);
+    animation: footer-marquee 18s linear infinite;
+}
+
+@keyframes footer-marquee {
+    0%   { text-indent: 100%; }
+    100% { text-indent: -200%; }
+}
+
+/* Footer tagline rainbow */
+.footer-tagline {
+    animation: rainbow-shift 5s linear infinite;
+}
+
+/* ===== SELECT PROMPT DECORATIONS ===== */
+.select-prompt::before {
+    content: '▶ ';
+    color: var(--color-accent-green);
+    text-shadow: 0 0 6px var(--color-accent-green);
+}
+
+.select-prompt::after {
+    content: ' ◀';
+    color: var(--color-accent-green);
+    text-shadow: 0 0 6px var(--color-accent-green);
+}
+
+/* ===== COMPLETION TEXT ===== */
+.completion-text {
+    animation: rainbow-shift 3s linear infinite;
+    display: inline-block;
+}
+
+/* ===== POWERUP ITEM ENHANCED HOVER ===== */
+.powerup-item {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.powerup-item:hover {
+    transform: translateY(-6px) scale(1.03);
+}
+
+/* ===== GAME BOX HOVER LIFT ===== */
+.game-box {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-box:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 0 30px rgba(0,255,255,0.4),
+        0 0 60px rgba(255,0,255,0.2),
+        0 10px 30px rgba(0,0,0,0.6);
+}
+
+/* ===== MOBILE OVERRIDES ===== */
+@media (max-width: 767px) {
+    .hero::before              { opacity: 0.5; }
+    .select-prompt::before,
+    .select-prompt::after      { display: none; }
+    .site-footer::before       { display: none; }
 }
