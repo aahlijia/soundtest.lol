@@ -490,29 +490,6 @@ function initMenuHover() {
 }
 
 /* ============================================================
-   LAZY LOAD IMAGES
-   ============================================================ */
-
-function initLazyLoad() {
-    const images = document.querySelectorAll('img[data-src]');
-    if ('IntersectionObserver' in window) {
-        const obs = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.removeAttribute('data-src');
-                    observer.unobserve(img);
-                }
-            });
-        });
-        images.forEach(img => obs.observe(img));
-    } else {
-        images.forEach(img => { img.src = img.dataset.src; img.removeAttribute('data-src'); });
-    }
-}
-
-/* ============================================================
    DYNAMIC KEYFRAMES
    ============================================================ */
 
@@ -543,7 +520,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initCharacterCards();
     initMenuHover();
     initHeroInteraction();
-    initLazyLoad();
     initScrollReveal();
     initStaggeredEntrance();
     initTitleUnderlines();

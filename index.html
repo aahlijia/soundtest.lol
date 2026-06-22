@@ -12,9 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/retro-theme.css">
-    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/bundle.min.css">
 </head>
 <body>
     <!-- Animated Starfield Background -->
@@ -41,7 +39,10 @@
     <main>
         <section class="hero">
             <div class="hero-banner">
-                <img src="images/banner.jpg" alt="SOUND/TEST band photo" class="banner-image">
+                <picture>
+                    <source srcset="images/banner.webp" type="image/webp">
+                    <img src="images/banner.jpg" alt="SOUND/TEST band photo" class="banner-image" fetchpriority="high" decoding="async">
+                </picture>
                 <div class="hero-overlay">
                     <h1 class="hero-title glitch" data-text="SOUND/TEST">SOUND/TEST</h1>
                     <p class="hero-subtitle">Press Start to Rock</p>

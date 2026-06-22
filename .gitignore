@@ -10,6 +10,7 @@ Thumbs.db
 
 # Development resources (not needed in production)
 development_resources/
+node_modules/
 
 # Docs (optional - keep if you want)
 docs/
