@@ -10,6 +10,14 @@ Thumbs.db
 
 # Development resources (not needed in production)
 development_resources/
+node_modules/
 
 # Docs (optional - keep if you want)
 docs/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example

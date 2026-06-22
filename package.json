@@ -1,0 +1,10 @@
+{
+  "name": "soundtest.lol",
+  "private": true,
+  "scripts": {
+    "build:css": "cat css/main.css css/retro-theme.css css/components.css > css/.bundle-src.css && lightningcss --minify css/.bundle-src.css -o css/bundle.min.css && rm css/.bundle-src.css"
+  },
+  "devDependencies": {
+    "lightningcss-cli": "^1.0.0-alpha.71"
+  }
+}
