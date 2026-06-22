@@ -14,3 +14,10 @@ node_modules/
 
 # Docs (optional - keep if you want)
 docs/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
